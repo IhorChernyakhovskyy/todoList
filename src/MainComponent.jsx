@@ -39,13 +39,14 @@ function MainComponent() {
   }, [tasks]);
 
   const addTask = (e) => {
-    if (e.key === "Enter" && e.target.value !== "") {
+    if (e.key === "Enter" && taskTitle.trim() !== "") {
       setTasks([
         ...tasks,
         {
           id: uuidv4(),
           title: taskTitle,
           status: false,
+          createdAt: new Date().toLocaleString(),
         },
       ]);
       setTaskTitle("");

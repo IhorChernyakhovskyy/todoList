@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Item = ({ id, title, status, setTasks, tasks }) => {
+const Item = ({ id, title, status, setTasks, tasks, createdAt }) => {
   const [checked, setChecked] = useState(status);
   const classes = ["todo"];
 
@@ -28,6 +28,7 @@ const Item = ({ id, title, status, setTasks, tasks }) => {
       <label>
         <input type="checkbox" checked={checked} onChange={updateStatus} />
         <span>{title}</span>
+        <p>{createdAt}</p>
         <i onClick={removeItem} className="material-icons red-text">
           X
         </i>
