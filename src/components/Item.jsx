@@ -16,6 +16,7 @@ const Item = ({ id, title, status, setTasks, tasks, createdAt }) => {
       }
       return true;
     });
+
     setTasks([...tasks]);
   }
 

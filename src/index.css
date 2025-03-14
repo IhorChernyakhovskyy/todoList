@@ -6,8 +6,20 @@ body {
   background-color: rgb(217, 226, 233);
 }
 
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 span {
   color: rgb(117, 142, 158);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .todo {

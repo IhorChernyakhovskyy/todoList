@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import List from "./components/List";
 import { v4 as uuidv4 } from "uuid";
 
@@ -14,6 +14,12 @@ function MainComponent() {
     }
   });
   const [taskTitle, setTaskTitle] = useState("");
+
+  const calculateTasks = useMemo(
+    () => tasks.filter((task) => !task.status).length,
+    [tasks]
+  );
+
   const date = new Date();
   const monthNames = [
     "January",
@@ -52,10 +58,14 @@ function MainComponent() {
       setTaskTitle("");
     }
   };
+
   return (
     <div className="container">
       <h1>{mainTitle}</h1>
-      <span>{`${day} ${month} ${year}`}</span>
+      <div className="header">
+        <span>{`Today is ${day} ${month} ${year}`}</span>
+        <span>{`You haven't finished ${calculateTasks} notes yet!`}</span>
+      </div>
       <div className="input-field">
         <input
           type="text"
